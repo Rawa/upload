@@ -3,6 +3,7 @@
 version="1.0"
 upload_path="/data/upload/"
 server="srv"
+permissions="0644"
 # Url of the website (used for copying url to clipboard)
 url="http://upload.davidgoransson.com/"
 
@@ -48,7 +49,7 @@ fi
 #Copy the files to the server
 scp $@ $server:$upload_path
 for file; do
-    ssh $server chmod 0644 $upload_path$(basename $file)
+    ssh $server chmod $permissions $upload_path$(basename $file)
 done
 
 #Copy url to clipboard (direct link if single file)
