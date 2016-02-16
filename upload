@@ -47,7 +47,7 @@ if [ "$#" -eq 1 ]; then
 fi
 
 # Copy the files to the server
-rsync --chmod=u+rw,g+r,o+r --progress "$@" $server:$upload_path
+rsync --chmod="$permissions" --progress "$@" $server:$upload_path
 
 # Copy url to clipboard (direct link if single file)
 if [ "$#" -eq 1 ]; then
