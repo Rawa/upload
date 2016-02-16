@@ -19,13 +19,13 @@ function print_help {
     echo "www.davidgoransson.com"
 }
 
-#Check if correct number of arguments
+# Check if correct number of arguments
 if [ "$#" -eq 0 ]; then
     print_help
     exit 1
 fi
 
-#If only one argument check if it is help or clean
+# If only one argument check if it is help or clean
 if [ "$#" -eq 1 ]; then
     if [ "$1" == "--help" ] || [ "$1" == "-h" ]; then
         print_help
@@ -46,10 +46,10 @@ if [ "$#" -eq 1 ]; then
     fi
 fi
 
-#Copy the files to the server
+# Copy the files to the server
 rsync --chmod=u+rw,g+r,o+r --progress "$@" $server:$upload_path
 
-#Copy url to clipboard (direct link if single file)
+# Copy url to clipboard (direct link if single file)
 if [ "$#" -eq 1 ]; then
     echo $url$1 | xsel -ib
 else
