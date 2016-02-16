@@ -1,4 +1,4 @@
-#/usr/bin/env bash
+#!/usr/bin/env bash
 
 version="1.0"
 upload_path="/data/upload/"
